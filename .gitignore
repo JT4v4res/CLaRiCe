@@ -172,3 +172,4 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+./corrector/pred/model/conv1d_7_study_3
