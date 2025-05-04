@@ -1,0 +1,42 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    command: ["serve"]
+    restart: unless-stopped
+    networks:
+      - app-net
+
+  clarice-backend:
+    build: ./backend/corrector/
+    container_name: clarice-backend
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    networks:
+      - app-net
+
+  chat-clarice:
+    build: ./frontend/chat-clarice/
+    container_name: chat-clarice
+    ports:
+      - "8501:8501"
+    environment:
+      - OLLAMA_API_URL=http://ollama:11434
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      - ollama
+      - clarice-backend
+    restart: unless-stopped
+    networks:
+      - app-net
+
+volumes:
+  ollama-data:
+
+networks:
+  app-net:
