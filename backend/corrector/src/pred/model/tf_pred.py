@@ -3,14 +3,8 @@ import string
 import unidecode
 import numpy as np
 from utils.utilities import *
-# import spacy
 import nltk
 import tensorflow as tf
-
-# def model_load():
-#     clarice = tf.saved_model.load('./pred/model/conv1d_7_study_3/conv1d_7_study_3/')
-#
-#     return clarice.signatures["serving_default"]
 
 
 def get_lemmas(text: str):

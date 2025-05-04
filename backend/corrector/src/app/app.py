@@ -26,10 +26,8 @@ async def startup_libraries():
 
     nlp = spacy.load("pt_core_news_lg")
 
-    try:
-        nltk.download('stopwords')
-    except:
-        print('stopwords already downloaded')
+    nltk.download('stopwords')
+
 
 @app.post("/predict/tf/", status_code=200)
 async def predict_essay(request: Essay):
