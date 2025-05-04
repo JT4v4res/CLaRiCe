@@ -34,3 +34,9 @@ Basta apenas procurar o nome do modelo nos repositórios do ollama e substituir 
 do modelo e utilizar livremente.
 
 O modelo utilizado por padrão no desenvolvimento do artigo bem como da aplicação foi o Gemma3-4B.
+
+## Outros Recursos
+
+O repositório do modelo na hugging faces encontra-se [aqui](https://huggingface.co/JT4v4res/CLaRiCe)
+
+O drive com os resultados do primeiro artigo encontram-se [aqui](https://drive.google.com/drive/folders/1bFMID8IgaorRx7YoPIA9PawOCRED_z6E?usp=sharing)
