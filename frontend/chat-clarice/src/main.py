@@ -17,6 +17,12 @@ import json
 
 inference_endpoint = "http://clarice-backend:8000/predict/tf/"
 
+option = st.selectbox(
+    "Qual modelo você deseja usar?",
+    ("gemma3:4B", "llama3.1:8B"),
+    placeholder="gemma3:4B"
+)
+
 @dataclass
 class Message:
     actor: str
@@ -25,7 +31,8 @@ class Message:
 
 @st.cache_resource
 def get_llm() -> OllamaLLM:
-    return OllamaLLM(model="gemma3:4B", host="http://ollama:11434")
+    return OllamaLLM(model=option if option else "gemma3:4B", host="http://ollama:11434", temperature=1.2)
+
 
 def get_classifier_chain():
     prompt = ChatPromptTemplate.from_messages([

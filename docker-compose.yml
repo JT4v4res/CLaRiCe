@@ -20,6 +20,14 @@ services:
     networks:
       - app-net
 
+  model_pull:
+    build: ./utils/
+    container_name: model-pull
+    depends_on:
+      - ollama
+    networks:
+      - app-net
+
   chat-clarice:
     build: ./frontend/chat-clarice/
     container_name: chat-clarice
